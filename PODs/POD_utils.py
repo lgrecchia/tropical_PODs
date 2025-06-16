@@ -533,6 +533,10 @@ def calculate_one_variable_binned_ivar_composites(ivar, BV1, lower_BV1_bin_limit
     bin_number_of_samples_ivar_lagging = bin_number_of_samples_ivar_lagging.assign_coords(year = year).expand_dims('year')
     bin_number_of_samples_ivar_centered = bin_number_of_samples_ivar_centered.assign_coords(year = year).expand_dims('year')
 
+    bin_number_of_samples_BV1_leading = bin_number_of_samples_BV1_leading.assign_coords(year = year).expand_dims('year')
+    bin_number_of_samples_BV1_lagging = bin_number_of_samples_BV1_lagging.assign_coords(year = year).expand_dims('year')
+    bin_number_of_samples_BV1_centered = bin_number_of_samples_BV1_centered.assign_coords(year = year).expand_dims('year')
+
     bin_mean_ivar = bin_mean_ivar.assign_coords(year = year).expand_dims('year')
         
     bin_mean_delta_ivar_leading = bin_mean_delta_ivar_leading.assign_coords(year = year).expand_dims('year')
@@ -811,7 +815,7 @@ def calculate_two_variable_binned_ivar_composites(ivar, BV1, BV2, lower_BV1_bin_
 def process_multiyear_one_variable_binned_ivar_composites(list_of_files):
     
     one_variable_binned_ivar_composites = xr.open_mfdataset(list_of_files, combine="by_coords")
-    
+
     # Calculate the bin means over all years #
 
     more_than_zero_obs_mask_ivar = one_variable_binned_ivar_composites.bin_number_of_samples_ivar.sum('year') > 0
