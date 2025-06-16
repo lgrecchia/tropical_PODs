@@ -5,3 +5,9 @@ plots/
 tropical_diagnostics.egg-info
 diagnostics.egg-info
 .DS_Store
+examples/ofiles_all
+examples/ofiles_AS
+examples/ofiles_BoB
+examples/oplots_all
+examples/oplots_AS
+examples/oplots_BoB
